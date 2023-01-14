@@ -12,7 +12,7 @@ namespace OHCE.Test.xUnit
         [InlineData(PériodeJournée.Nuit, Expressions.Français.Bonsoir)]
         public void DireBonjourEnFrançaisTest(PériodeJournée période, string salutationAttendue)
         {
-            // ETANT DONNE la langue française
+            // ETANT DONNE la langue Française
             // ET une période de la journée <période>
             var langue = new LangueFrançaise();
 
@@ -31,7 +31,7 @@ namespace OHCE.Test.xUnit
         [InlineData(PériodeJournée.Nuit, Expressions.English.Bonsoir)]
         public void DireBonjourEnAnglaisTest(PériodeJournée période, string salutationAttendue)
         {
-            // ETANT DONNE la langue française
+            // ETANT DONNE la langue Anglaise
             // ET une période de la journée <période>
             var langue = new LangueAnglaise();
 
@@ -50,7 +50,7 @@ namespace OHCE.Test.xUnit
         [InlineData(PériodeJournée.Nuit, Expressions.Hungarian.Bonsoir)]
         public void DireBonjourEnHongroisTest(PériodeJournée période, string salutationAttendue)
         {
-            // ETANT DONNE la langue française
+            // ETANT DONNE la langue Hongroise
             // ET une période de la journée <période>
             var langue = new LangueHongroise();
 
@@ -69,14 +69,14 @@ namespace OHCE.Test.xUnit
         [InlineData(PériodeJournée.Nuit, Expressions.Français.AuRevoirNuit)]
         public void DireAuRevoirEnFrançaisTest(PériodeJournée période, string AuRevoirAttendu)
         {
-            // ETANT DONNE la langue française
+            // ETANT DONNE la langue Française
             // ET une période de la journée <période>
             var langue = new LangueFrançaise();
 
-            // QUAND je dis bonjour
+            // QUAND je dis au revoir
             var AuRevoir = langue.DireAuRevoir(période);
 
-            // ALORS on me répond <salutationAttendue>
+            // ALORS on me répond <AuRevoirAttendu>
             Assert.Equal(AuRevoirAttendu, AuRevoir);
         }
 
@@ -88,14 +88,14 @@ namespace OHCE.Test.xUnit
         [InlineData(PériodeJournée.Nuit, Expressions.English.AuRevoirNuit)]
         public void DireAuRevoirEnAnglaisTest(PériodeJournée période, string AuRevoirAttendu)
         {
-            // ETANT DONNE la langue française
+            // ETANT DONNE la langue Anglaise
             // ET une période de la journée <période>
             var langue = new LangueAnglaise();
 
-            // QUAND je dis bonjour
+            // QUAND je dis au revoir
             var AuRevoir = langue.DireAuRevoir(période);
 
-            // ALORS on me répond <salutationAttendue>
+            // ALORS on me répond <AuRevoirAttendu>
             Assert.Equal(AuRevoirAttendu, AuRevoir);
         }
 
@@ -107,14 +107,14 @@ namespace OHCE.Test.xUnit
         [InlineData(PériodeJournée.Nuit, Expressions.Hungarian.AuRevoirNuit)]
         public void DireAuRevoirEnHongroisTest(PériodeJournée période, string AuRevoirAttendu)
         {
-            // ETANT DONNE la langue française
+            // ETANT DONNE la langue Hongroise
             // ET une période de la journée <période>
             var langue = new LangueHongroise();
 
-            // QUAND je dis bonjour
+            // QUAND je dis au revoir
             var AuRevoir = langue.DireAuRevoir(période);
 
-            // ALORS on me répond <salutationAttendue>
+            // ALORS on me répond <AuRevoirAttendu>
             Assert.Equal(AuRevoirAttendu, AuRevoir);
         }
     }

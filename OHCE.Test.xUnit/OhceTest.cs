@@ -83,20 +83,22 @@ public class OhceTest
     }
 
     [Theory(DisplayName = "ETANT DONNE un utilisateur parlant une langue" +
-                          "QUAND l'app se ferme " +
-                          "ALORS <auRevoir> dans cette langue est envoyé")]
-    [MemberData(nameof(LanguesSeules))]
-    public void FermetureTest(ILangue langue)
+                           "ET que la période de la journée est <période>" +
+                           "QUAND l'app se ferme " +
+                           "ALORS <auRevoir> de cette langue à cette période est envoyé")]
+    [MemberData(nameof(LanguesEtPériodes))]
+    public void FermetureTest(ILangue langue, PériodeJournée période)
     {
         // ETANT DONNE un utilisateur parlant une langue
         var ohce = new OhceBuilder()
             .AyantPourLangue(langue)
+            .AyantPourPériodeDeLaJournée(période)
             .Build();
 
         // QUAND l'app démarre
         var sortie = ohce.Palindrome(string.Empty);
 
         // ALORS <auRevoir> dans cette langue est envoyé
-        Assert.EndsWith(langue.AuRevoir, sortie);
+        Assert.EndsWith(langue.DireAuRevoir(période), sortie);
     }
 }

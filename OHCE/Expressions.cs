@@ -13,14 +13,22 @@ namespace OHCE
             public const string Bonjour = "Bonjour";
             public const string Bonsoir = "Bonsoir";
             public const string AuRevoir = "Au revoir";
+            public const string AuRevoirMatin = "Au revoir, passe une bonne matinée !";
+            public const string AuRevoirAprèsMidi = "Au revoir, passe une bonne après-midi !";
+            public const string AuRevoirSoir = "Au revoir, passe une bonne soirée !";
+            public const string AuRevoirNuit = "Au revoir, passe une bonne nuit !";
             public const string BienDit = "Bien dit !";
         }
 
         public static class English
         {
-            public const string Bonjour = "Good Morning";
+            public const string Bonjour = "Hello";
             public const string Bonsoir = "Good Evening";
             public const string AuRevoir = "Goodbye";
+            public const string AuRevoirMatin = "Goodbye, have a good morning !";
+            public const string AuRevoirAprèsMidi = "Goodbye, have a good afternoon !";
+            public const string AuRevoirSoir = "Goodbye, have a nice evening !";
+            public const string AuRevoirNuit = "Goodbye, have a good night !";
             public const string BienDit = "Well said !";
         }
 
@@ -29,7 +37,11 @@ namespace OHCE
             public const string Bonjour = "Helló";
             public const string Bonsoir = "Jó estét";
             public const string AuRevoir = "Viszlát";
-            public const string BienDit = "Jól van mondva !";
+            public const string AuRevoirMatin = "Viszlát, jó reggelt!";
+            public const string AuRevoirAprèsMidi = "Viszlát, szép délutánt!";
+            public const string AuRevoirSoir = "Viszlát, szép estét!";
+            public const string AuRevoirNuit = "Viszlát, jó éjszakát!";
+            public const string BienDit = "Jól van mondva!";
         }
     }
 }

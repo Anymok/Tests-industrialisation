@@ -6,6 +6,6 @@
 
         public string DireBonjour(PériodeJournée période) => string.Empty; 
 
-        public string AuRevoir { get; init; } = string.Empty;
+        public string DireAuRevoir(PériodeJournée période) => string.Empty;
     }
 }

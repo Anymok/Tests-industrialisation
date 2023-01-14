@@ -27,7 +27,7 @@ public class Ohce
         if (reversed.Equals(input))
             stringBuilder.Append(_langue.BienDit);
 
-        stringBuilder.Append(_langue.AuRevoir);
+        stringBuilder.Append(_langue.DireAuRevoir(_périodeJournée));
 
         return stringBuilder.ToString();
     }

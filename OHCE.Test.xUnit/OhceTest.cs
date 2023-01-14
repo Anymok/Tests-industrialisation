@@ -6,6 +6,26 @@ namespace OHCE.Test.xUnit;
 
 public class OhceTest
 {
+
+    private static readonly IEnumerable<ILangue> Langues = new ILangue[]
+{
+        new LangueAnglaise(),
+        new LangueFrançaise(),
+        new LangueHongroise(),
+};
+
+    private static readonly IEnumerable<PériodeJournée> Périodes = new PériodeJournée[]
+    {
+        PériodeJournée.Matin,
+        PériodeJournée.AprèsMidi,
+        PériodeJournée.Soir,
+        PériodeJournée.Nuit,
+        PériodeJournée.Defaut
+    };
+
+    public static IEnumerable<object[]> LanguesSeules => new CartesianData(Langues);
+    public static IEnumerable<object[]> LanguesEtPériodes => new CartesianData(Langues, Périodes);
+
     [Fact(DisplayName = 
         "QUAND on entre une chaîne de caractères " +
         "ALORS elle est renvoyée en miroir")]
@@ -42,24 +62,6 @@ public class OhceTest
             palindrome + langue.BienDit, 
             sortie);
     }
-
-    private static readonly IEnumerable<ILangue> Langues = new ILangue[]
-    {
-        new LangueAnglaise(), 
-        new LangueFrançaise()
-    };
-
-    private static readonly IEnumerable<PériodeJournée> Périodes = new PériodeJournée[]
-    {
-        PériodeJournée.Matin, 
-        PériodeJournée.AprèsMidi, 
-        PériodeJournée.Soir, 
-        PériodeJournée.Nuit, 
-        PériodeJournée.Defaut
-    };
-
-    public static IEnumerable<object[]> LanguesSeules => new CartesianData(Langues);
-    public static IEnumerable<object[]> LanguesEtPériodes => new CartesianData(Langues, Périodes);
 
     [Theory(DisplayName = "ETANT DONNE un utilisateur parlant une langue" +
                           "ET que la période de la journée est <période>" +

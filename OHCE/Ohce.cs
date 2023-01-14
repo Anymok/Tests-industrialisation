@@ -13,6 +13,16 @@ public class Ohce
         _périodeJournée = périodeJournée;
     }
 
+    public string SaluerBonjour()
+    {
+        return _langue.DireBonjour(_périodeJournée);
+    }
+
+    public string SaluerAuRevoir()
+    {
+        return _langue.DireAuRevoir(_périodeJournée);
+    }
+
     public string Palindrome(string input)
     {
         var stringBuilder = 

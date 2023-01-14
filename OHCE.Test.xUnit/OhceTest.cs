@@ -108,4 +108,49 @@ public class OhceTest
         // ALORS <auRevoir> dans cette langue à cette période est envoyé en dernier
         Assert.EndsWith(langue.DireAuRevoir(période), sortie);
     }
+
+
+    [Theory(DisplayName =
+        "ETANT DONNE un utilisateur parlant une langue " +
+        "ET que la période de la journée est <période> " +
+        "QUAND l'utilisateur lance le programme " +
+        "ALORS <Bonjour> dans cette langue à cette période est envoyé avant tout.")]
+            [MemberData(nameof(LanguesEtPériodes))]
+    public void SaluerBonjourTest(ILangue langue, PériodeJournée période)
+    {
+        // ETANT DONNE un utilisateur parlant une langue
+        // ET que la période de la journée est <période>
+        var ohce = new OhceBuilder()
+            .AyantPourLangue(langue)
+            .AyantPourPériodeDeLaJournée(période)
+            .Build();
+
+        // QUAND l'utilisateur lance le programme
+        var sortie = ohce.SaluerBonjour();
+
+        // ALORS <Bonjour> dans cette langue à cette période est envoyé avant tout
+        Assert.Equal(langue.DireBonjour(période), sortie);
+    }
+
+    [Theory(DisplayName =
+        "ETANT DONNE un utilisateur parlant une langue " +
+        "ET que la période de la journée est <période> " +
+        "QUAND l'utilisateur quitte le programme " +
+        "ALORS <auRevoir> dans cette langue à cette période est envoyé en dernier.")]
+    [MemberData(nameof(LanguesEtPériodes))]
+    public void SaluerAuRevoirTest(ILangue langue, PériodeJournée période)
+    {
+        // ETANT DONNE un utilisateur parlant une langue
+        // ET que la période de la journée est <période>
+        var ohce = new OhceBuilder()
+            .AyantPourLangue(langue)
+            .AyantPourPériodeDeLaJournée(période)
+            .Build();
+
+        // QUAND on saisit une chaîne
+        var sortie = ohce.SaluerAuRevoir();
+
+        // ALORS <auRevoir> dans cette langue à cette période est envoyé en dernier
+        Assert.Equal(langue.DireAuRevoir(période), sortie);
+    }
 }

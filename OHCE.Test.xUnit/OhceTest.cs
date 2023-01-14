@@ -28,7 +28,7 @@ public class OhceTest
 
     [Fact(DisplayName = 
         "QUAND on entre une chaîne de caractères " +
-        "ALORS elle est renvoyée en miroir")]
+        "ALORS elle est renvoyée en miroir.")]
     public void MiroirTest()
     {
         var ohce = OhceBuilder.Default;
@@ -40,10 +40,11 @@ public class OhceTest
         Assert.Contains("otot", sortie);
     }
 
-    [Theory(DisplayName = "ETANT DONNE un utilisateur parlant une langue" +
-                          "QUAND on entre un palindrome " +
-                          "ALORS il est renvoyé " +
-                          "ET le <bienDit> de cette langue est envoyé")]
+    [Theory(DisplayName = 
+        "ETANT DONNE un utilisateur parlant une langue" +
+        "QUAND on entre un palindrome " +
+        "ALORS il est renvoyé " +
+        "ET le <bienDit> de cette langue est envoyé.")]
     [MemberData(nameof(LanguesSeules))]
     public void PalindromeTest(ILangue langue)
     {
@@ -63,12 +64,14 @@ public class OhceTest
             sortie);
     }
 
-    [Theory(DisplayName = "ETANT DONNE un utilisateur parlant une langue" +
-                          "ET que la période de la journée est <période>" +
-                          "QUAND l'app démarre " +
-                          "ALORS <bonjour> de cette langue à cette période est envoyé")]
+
+    [Theory(DisplayName =  
+        "ETANT DONNE un utilisateur parlant une langue " + 
+        "ET que la période de la journée est <période>" + 
+        "QUAND on saisit une chaîne" + 
+        "ALORS <salutation> de cette langue à cette période est envoyé avant tout.")]
     [MemberData(nameof(LanguesEtPériodes))]
-    public void DémarrageTest(ILangue langue, PériodeJournée période)
+    public void SaisiBonjourTest(ILangue langue, PériodeJournée période)
     {
         // ETANT DONNE un utilisateur parlant une langue
         // ET que la période de la journée est <période>
@@ -77,30 +80,32 @@ public class OhceTest
             .AyantPourPériodeDeLaJournée(période)
             .Build();
 
-        // QUAND l'app démarre
+        // QUAND on saisit une chaîne
         var sortie = ohce.Palindrome(string.Empty);
 
-        // ALORS <bonjour> de cette langue à cette période est envoyé
+        // ALORS <salutation> de cette langue à cette période est envoyé avant tout
         Assert.StartsWith(langue.DireBonjour(période), sortie);
     }
 
-    [Theory(DisplayName = "ETANT DONNE un utilisateur parlant une langue" +
-                           "ET que la période de la journée est <période>" +
-                           "QUAND l'app se ferme " +
-                           "ALORS <auRevoir> de cette langue à cette période est envoyé")]
+    [Theory(DisplayName = 
+        "ETANT DONNE un utilisateur parlant une langue " +
+        "ET que la période de la journée est <période> " +
+        "QUAND on saisit une chaîne " +
+        "ALORS <auRevoir> dans cette langue à cette période est envoyé en dernier.")]
     [MemberData(nameof(LanguesEtPériodes))]
-    public void FermetureTest(ILangue langue, PériodeJournée période)
+    public void SaisiAuRevoirTest(ILangue langue, PériodeJournée période)
     {
         // ETANT DONNE un utilisateur parlant une langue
+        // ET que la période de la journée est <période>
         var ohce = new OhceBuilder()
             .AyantPourLangue(langue)
             .AyantPourPériodeDeLaJournée(période)
             .Build();
 
-        // QUAND l'app démarre
+        // QUAND on saisit une chaîne
         var sortie = ohce.Palindrome(string.Empty);
 
-        // ALORS <auRevoir> dans cette langue est envoyé
+        // ALORS <auRevoir> dans cette langue à cette période est envoyé en dernier
         Assert.EndsWith(langue.DireAuRevoir(période), sortie);
     }
 }

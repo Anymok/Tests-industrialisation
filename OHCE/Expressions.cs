@@ -18,6 +18,7 @@ namespace OHCE
             public const string AuRevoirSoir = "Au revoir, passe une bonne soirée !";
             public const string AuRevoirNuit = "Au revoir, passe une bonne nuit !";
             public const string BienDit = "Bien dit !";
+            public const string DemandePalindrome = "Entrez un mot pour savoir s'il s'agit d'un palindrome: ";
         }
 
         public static class English
@@ -30,6 +31,7 @@ namespace OHCE
             public const string AuRevoirSoir = "Goodbye, have a nice evening !";
             public const string AuRevoirNuit = "Goodbye, have a good night !";
             public const string BienDit = "Well said !";
+            public const string DemandePalindrome = "Enter a word to find out if it is a palindrome: ";
         }
 
         public static class Hungarian
@@ -42,6 +44,7 @@ namespace OHCE
             public const string AuRevoirSoir = "Viszlát, szép estét!";
             public const string AuRevoirNuit = "Viszlát, jó éjszakát!";
             public const string BienDit = "Jól van mondva!";
+            public const string DemandePalindrome = "Írjon be egy szót, hogy megtudja, palindromáról van-e szó: ";
         }
     }
 }

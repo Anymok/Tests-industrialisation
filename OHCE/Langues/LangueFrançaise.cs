@@ -3,6 +3,8 @@
     public class LangueFrançaise : ILangue
     {
         /// <inheritdoc />
+        public string DemandePalindrome => Expressions.Français.DemandePalindrome;
+        /// <inheritdoc />
         public string BienDit => Expressions.Français.BienDit;
 
         /// <inheritdoc />

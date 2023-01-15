@@ -153,4 +153,42 @@ public class OhceTest
         // ALORS <auRevoir> dans cette langue à cette période est envoyé en dernier
         Assert.Equal(langue.DireAuRevoir(période), sortie);
     }
+
+    [Theory(DisplayName =
+        "ETANT DONNE un utilisateur parlant une langue " +
+        "QUAND l'utilisateur lance le programme, ce dernier demande de saisir un mot " +
+        "ALORS <DemandePalindrome> dans cette langue est envoyé.")]
+    [MemberData(nameof(LanguesSeules))]
+    public void DemandePalindromeTest(ILangue langue)
+    {
+        // ETANT DONNE un utilisateur parlant une langue
+        var ohce = new OhceBuilder()
+            .AyantPourLangue(langue)
+            .Build();
+
+        // QUAND l'utilisateur lance le programme, ce dernier demande de saisir un mot 
+        var sortie = ohce.DemandePalindrome();
+
+        // ALORS <DemandePalindrome> dans cette langue est envoyé.
+        Assert.Equal(langue.DemandePalindrome, sortie);
+    }
+
+    [Theory(DisplayName =
+        "ETANT DONNE un utilisateur parlant une langue " +
+        "QUAND l'utilisateur lance le programme, l'utilisateur saisi un palindrome " +
+        "ALORS <BienDit> dans cette langue est envoyé.")]
+    [MemberData(nameof(LanguesSeules))]
+    public void BienDitTest(ILangue langue)
+    {
+        // ETANT DONNE un utilisateur parlant une langue
+        var ohce = new OhceBuilder()
+            .AyantPourLangue(langue)
+            .Build();
+
+        // QUAND l'utilisateur lance le programme, l'utilisateur saisi un palindrome 
+        var sortie = ohce.bienDit();
+
+        // ALORS <BienDit> dans cette langue est envoyé.
+        Assert.Equal(langue.BienDit, sortie);
+    }
 }

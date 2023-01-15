@@ -23,6 +23,15 @@ public class Ohce
         return _langue.DireAuRevoir(_périodeJournée);
     }
 
+    public string DemandePalindrome()
+    {
+        return _langue.DemandePalindrome;
+    }
+    public string bienDit()
+    {
+        return _langue.BienDit;
+    }
+
     public string Palindrome(string input)
     {
         var stringBuilder = 

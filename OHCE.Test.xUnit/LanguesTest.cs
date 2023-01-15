@@ -117,5 +117,89 @@ namespace OHCE.Test.xUnit
             // ALORS on me répond <AuRevoirAttendu>
             Assert.Equal(AuRevoirAttendu, AuRevoir);
         }
+
+        [Theory]
+        [InlineData(Expressions.Français.BienDit)]
+        public void BienDitEnFrançais(string BienDitAttendu)
+        {
+            // ETANT DONNE la langue Française
+            var langue = new LangueFrançaise();
+
+            // QUAND je saisi un palindrome 
+            var BienDit = langue.BienDit;
+
+            // ALORS on me répond <BienDit>
+            Assert.Equal(BienDitAttendu, BienDit);
+        }
+
+        [Theory]
+        [InlineData(Expressions.English.BienDit)]
+        public void BienDitEnAnglais(string BienDitAttendu)
+        {
+            // ETANT DONNE la langue Anglaise
+            var langue = new LangueAnglaise();
+
+            // QUAND je saisi un palindrome 
+            var BienDit = langue.BienDit;
+
+            // ALORS on me répond <BienDit>
+            Assert.Equal(BienDitAttendu, BienDit);
+        }
+
+        [Theory]
+        [InlineData(Expressions.Hungarian.BienDit)]
+        public void BienDitEnHongrois(string BienDitAttendu)
+        {
+            // ETANT DONNE la langue Hongroise
+            var langue = new LangueHongroise();
+
+            // QUAND je saisi un palindrome 
+            var BienDit = langue.BienDit;
+
+            // ALORS on me répond <BienDit>
+            Assert.Equal(BienDitAttendu, BienDit);
+        }
+
+        [Theory]
+        [InlineData(Expressions.Français.DemandePalindrome)]
+        public void DemandePalindromeEnFrançais(string DemandePalindromeAttendu)
+        {
+            // ETANT DONNE la langue Française
+            var langue = new LangueFrançaise();
+
+            // QUAND je lance le programme
+            var DemandePalindrome = langue.DemandePalindrome;
+
+            // ALORS on me demande <DemandePalindrome>
+            Assert.Equal(DemandePalindromeAttendu, DemandePalindrome);
+        }
+
+        [Theory]
+        [InlineData(Expressions.English.DemandePalindrome)]
+        public void DemandePalindromeEnAnglais(string DemandePalindromeAttendu)
+        {
+            // ETANT DONNE la langue Anglaise
+            var langue = new LangueAnglaise();
+
+            // QUAND je lance le programme
+            var DemandePalindrome = langue.DemandePalindrome;
+
+            // ALORS on me demande <DemandePalindrome>
+            Assert.Equal(DemandePalindromeAttendu, DemandePalindrome);
+        }
+
+        [Theory]
+        [InlineData(Expressions.Hungarian.DemandePalindrome)]
+        public void DemandePalindromeEnHongrois(string DemandePalindromeAttendu)
+        {
+            // ETANT DONNE la langue Hongroise
+            var langue = new LangueHongroise();
+
+            // QUAND je lance le programme
+            var DemandePalindrome = langue.DemandePalindrome;
+
+            // ALORS on me demande <DemandePalindrome>
+            Assert.Equal(DemandePalindromeAttendu, DemandePalindrome);
+        }
     }
 }

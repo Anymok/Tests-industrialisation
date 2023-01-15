@@ -6,17 +6,17 @@ namespace OHCE.Console
 
     internal class SystemLangProxy : ILangue
     {
-        private string locallangue = CultureInfo.CurrentCulture.Name;
-        //private string locallangue = "en-US";
-        //private string locallangue = "hu-HU";
-        //private string locallangue = "fr-FR";
+        private string LocalLangue = CultureInfo.CurrentCulture.Name;
+        //private string LocalLangue = "en-US";
+        //private string LocalLangue = "hu-HU";
+        //private string LocalLangue = "fr-FR";
         public string DemandePalindrome => DemandePalindromeValue();
         public string BienDit => BienDitValue();
 
         /// <inheritdoc />
         public string DireBonjour(PériodeJournée PériodeActuelle)
         {
-            if (locallangue == "fr-FR")
+            if (LocalLangue == "fr-FR")
             {
                 return PériodeActuelle == PériodeJournée.Matin ? Expressions.Français.Bonjour
                     : PériodeActuelle == PériodeJournée.AprèsMidi ? Expressions.Français.Bonjour
@@ -24,7 +24,7 @@ namespace OHCE.Console
                     : PériodeActuelle == PériodeJournée.Nuit ? Expressions.Français.Bonsoir
                     : Expressions.Français.Bonjour;
             }
-            else if (locallangue == "en-US")
+            else if (LocalLangue == "en-US")
             {
                 return PériodeActuelle == PériodeJournée.Matin ? Expressions.English.Bonjour
                     : PériodeActuelle == PériodeJournée.AprèsMidi ? Expressions.English.Bonjour
@@ -32,7 +32,7 @@ namespace OHCE.Console
                     : PériodeActuelle == PériodeJournée.Nuit ? Expressions.English.Bonsoir
                     : Expressions.English.Bonjour;
             }
-            else if (locallangue == "hu-HU")
+            else if (LocalLangue == "hu-HU")
             {
                 return PériodeActuelle == PériodeJournée.Matin ? Expressions.Hungarian.Bonjour
                     : PériodeActuelle == PériodeJournée.AprèsMidi ? Expressions.Hungarian.Bonjour
@@ -54,7 +54,7 @@ namespace OHCE.Console
         /// <inheritdoc />
         public string DireAuRevoir(PériodeJournée PériodeActuelle)
         {
-            if (locallangue == "fr-FR")
+            if (LocalLangue == "fr-FR")
             {
                 return PériodeActuelle == PériodeJournée.Matin ? Expressions.Français.AuRevoirMatin
                     : PériodeActuelle == PériodeJournée.AprèsMidi ? Expressions.Français.AuRevoirAprèsMidi
@@ -62,7 +62,7 @@ namespace OHCE.Console
                     : PériodeActuelle == PériodeJournée.Nuit ? Expressions.Français.AuRevoirNuit
                     : Expressions.Français.AuRevoir;
             }
-            else if (locallangue == "en-US")
+            else if (LocalLangue == "en-US")
             {
                 return PériodeActuelle == PériodeJournée.Matin ? Expressions.English.AuRevoirMatin
                     : PériodeActuelle == PériodeJournée.AprèsMidi ? Expressions.English.AuRevoirAprèsMidi
@@ -70,7 +70,7 @@ namespace OHCE.Console
                     : PériodeActuelle == PériodeJournée.Nuit ? Expressions.English.AuRevoirNuit
                     : Expressions.English.AuRevoir;
             }
-            else if (locallangue == "hu-HU")
+            else if (LocalLangue == "hu-HU")
             {
                 return PériodeActuelle == PériodeJournée.Matin ? Expressions.Hungarian.AuRevoirMatin
                     : PériodeActuelle == PériodeJournée.AprèsMidi ? Expressions.Hungarian.AuRevoirAprèsMidi
@@ -91,15 +91,15 @@ namespace OHCE.Console
 
         private string BienDitValue()
         {
-            if (locallangue == "fr-FR")
+            if (LocalLangue == "fr-FR")
             {
                 return Expressions.Français.BienDit;
             }
-            else if (locallangue == "en-US")
+            else if (LocalLangue == "en-US")
             {
                 return Expressions.English.BienDit;
             }
-            else if (locallangue == "hu-HU")
+            else if (LocalLangue == "hu-HU")
             {
                 return Expressions.Hungarian.BienDit;
             }
@@ -111,15 +111,15 @@ namespace OHCE.Console
 
         private string DemandePalindromeValue()
         {
-            if (locallangue == "fr-FR")
+            if (LocalLangue == "fr-FR")
             {
                 return Expressions.Français.DemandePalindrome;
             }
-            else if (locallangue == "en-US")
+            else if (LocalLangue == "en-US")
             {
                 return Expressions.English.DemandePalindrome;
             }
-            else if (locallangue == "hu-HU")
+            else if (LocalLangue == "hu-HU")
             {
                 return Expressions.Hungarian.DemandePalindrome;
             }

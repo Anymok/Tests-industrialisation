@@ -41,7 +41,7 @@ public class Ohce
         stringBuilder.Append(reversed);
 
         if (reversed.Equals(input))
-            stringBuilder.Append(_langue.BienDit);
+            stringBuilder.Append("\r" + _langue.BienDit);
 
         return stringBuilder.ToString();
     }

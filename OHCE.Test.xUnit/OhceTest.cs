@@ -81,10 +81,10 @@ public class OhceTest
             .Build();
 
         // QUAND on saisit une chaîne
-        var sortie = ohce.Palindrome(string.Empty);
+        var sortie = ohce.SaluerBonjour();
 
         // ALORS <salutation> de cette langue à cette période est envoyé avant tout
-        Assert.StartsWith(langue.DireBonjour(période), sortie);
+        Assert.Equal(langue.DireBonjour(période), sortie);
     }
 
     [Theory(DisplayName = 
@@ -103,7 +103,7 @@ public class OhceTest
             .Build();
 
         // QUAND on saisit une chaîne
-        var sortie = ohce.Palindrome(string.Empty);
+        var sortie = ohce.SaluerAuRevoir();
 
         // ALORS <auRevoir> dans cette langue à cette période est envoyé en dernier
         Assert.EndsWith(langue.DireAuRevoir(période), sortie);
